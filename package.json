@@ -16,8 +16,8 @@
     "url": "https://github.com/sergio-jorquera/Music-crud_app/issues"
   },
   "homepage": "https://github.com/sergio-jorquera/Music-crud_app#readme",
-  "description": "",
   "dependencies": {
     "json-server": "^1.0.0-beta.3"
-  }
+  },
+  "description": ""
 }
