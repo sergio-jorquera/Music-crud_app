@@ -16,4 +16,3 @@ return data;
     console.error("Error obteniendo musica:", error);
 }
 }
-listMusic();
