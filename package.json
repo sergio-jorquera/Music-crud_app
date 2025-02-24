@@ -1,0 +1,23 @@
+{
+  "name": "music-crud_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "api": "json-server --watch server/database.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergio-jorquera/Music-crud_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergio-jorquera/Music-crud_app/issues"
+  },
+  "homepage": "https://github.com/sergio-jorquera/Music-crud_app#readme",
+  "description": "",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  }
+}
