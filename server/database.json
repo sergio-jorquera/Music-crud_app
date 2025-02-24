@@ -1,8 +1,40 @@
 {
     "musica":[
-        {
-            "id":"1",
-            "title":"Titulo"
-        }
-    ]
-}
+        
+            {
+                "id": 1,
+                "titulo": "Bohemian Rhapsody",
+                "grupo": "Queen",
+                "album": "A Night at the Opera",
+                "anio": 1975
+            },
+            {
+                "id": 2,
+                "titulo": "Stairway to Heaven",
+                "grupo": "Led Zeppelin",
+                "album": "Led Zeppelin IV",
+                "anio": 1971
+            },
+            {
+                "id": 3,
+                "titulo": "Hotel California",
+                "grupo": "Eagles",
+                "album": "Hotel California",
+                "anio": 1976
+            },
+            {
+                "id": 4,
+                "titulo": "Imagine",
+                "grupo": "John Lennon",
+                "album": "Imagine",
+                "anio": 1971
+            },
+            {
+                "id": 5,
+                "titulo": "Billie Jean",
+                "grupo": "Michael Jackson",
+                "album": "Thriller",
+                "anio": 1982
+            }
+        ]
+    }
