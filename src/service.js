@@ -43,5 +43,5 @@ async function printListMusic(){
         
           console.log("Tabla después de actualizar:", tbody.innerHTML); 
         }
-
-  
+        
+        
