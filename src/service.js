@@ -3,82 +3,164 @@ const API_URL = "http://localhost:3000/musica";
 document.getElementById("load-music").addEventListener("click", printListMusic);
 
 async function listMusic() {
-    try { 
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        console.log("Música obtenida:", data);
-        return data;
-    } catch (error) {
-        console.error("Error obteniendo música:", error);
-    }
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    console.log("Música obtenida:", data);
+    return data;
+  } catch (error) {
+    console.error("Error obteniendo música:", error);
+  }
+}
+
+async function getOneSong(title) {
+  try {
+      const response = await fetch(`http://localhost:3000/musica?title=${title}`);
+      if (response.ok) {
+          const data = await response.json();
+          return data.length > 0 ? data[0] : null; // Devuelve la primera coincidencia si existe
+      } else {
+          return null;
+      }
+  } catch (error) {
+      console.error('Error:', error);
+      return null;
+  }
+}
+
+const searchContainer = document.getElementById("search-container");
+const searchButton = document.getElementById("search-button");
+
+searchButton.addEventListener("click", () => {
+  searchContainer.innerHTML = `
+      <input type="text" id="search-id" placeholder="Ingrese título de la canción">
+      <button id="confirm-search">Buscar</button>
+  `;
+
+  document.getElementById("confirm-search").addEventListener("click", async () => {
+      const title = document.getElementById("search-id").value.trim();
+      if (title) {
+          const song = await getOneSong(title);
+          if (song) {
+              printOneSong(song);
+              searchContainer.innerHTML = ""; // Ocultar input y botón después de la búsqueda
+          } else {
+              alert("Canción no encontrada.");
+          }
+      }
+  });
+});
+
+function printOneSong(song) {
+  const tbody = document.querySelector("#music-body");
+
+  if (!tbody) {
+      console.error("No se encontró el tbody en HTML");
+      return;
+  }
+
+  tbody.innerHTML = ""; // Limpiar tabla antes de agregar la nueva fila
+
+  const row = document.createElement("tr");
+  row.innerHTML = `
+      <td>${song.id}</td>
+      <td>${song.title}</td>
+      <td>${song.group}</td>
+      <td>${song.album}</td>
+      <td>${song.year}</td>
+      <td>
+          <button class="edit-btn" 
+              data-id="${song.id}" 
+              data-title="${song.title}" 
+              data-album="${song.album}" 
+              data-group="${song.group}" 
+              data-year="${song.year}">
+              Editar
+          </button>
+          <button class="delete-btn" data-id="${song.id}">Eliminar</button>
+      </td>
+  `;
+  
+  tbody.appendChild(row);
+
+  // Reasignar eventos a los botones
+  row.querySelector(".delete-btn").addEventListener("click", function () {
+      deleteSong(song.id);
+  });
+
+  row.querySelector(".edit-btn").addEventListener("click", function () {
+      fillUpdateForm(song.id, song.title, song.group, song.album, song.year);
+  });
+
+  console.log("Canción impresa:", song);
 }
 
 async function createSong(songData) {
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(songData)
-        });
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(songData)
+    });
 
-        if (response.ok) {
-            console.log('Canción añadida:', await response.json());
-            printListMusic();
-        }
-    } catch (error) {
-        console.error('Error:', error);
+    if (response.ok) {
+      console.log('Canción añadida:', await response.json());
+      printListMusic();
     }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 async function updateSong(id, updatedSong) {
-    try {
-        const response = await fetch(`${API_URL}/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(updatedSong)
-        });
+  try {
+    const response = await fetch(`${API_URL}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedSong)
+    });
 
-        if (!response.ok) {
-            throw new Error("Error al actualizar la canción");
-        }
-
-        console.log("Canción actualizada exitosamente");
-        printListMusic();
-    } catch (error) {
-        console.error("Error al actualizar la canción:", error);
+    if (!response.ok) {
+      throw new Error("Error al actualizar la canción");
     }
+
+    console.log("Canción actualizada exitosamente");
+    printListMusic();
+  } catch (error) {
+    console.error("Error al actualizar la canción:", error);
+  }
 }
 
 async function deleteSong(id) {
-    try {
-        const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+  try {
+    const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
 
-        if (!response.ok) {
-            throw new Error("Error al eliminar la canción");
-        }
-
-        console.log(`Canción con ID ${id} eliminada correctamente`);
-        printListMusic();
-    } catch (error) {
-        console.error("Error al eliminar la canción:", error);
+    if (!response.ok) {
+      throw new Error("Error al eliminar la canción");
     }
+
+    console.log(`Canción con ID ${id} eliminada correctamente`);
+    printListMusic();
+  } catch (error) {
+    console.error("Error al eliminar la canción:", error);
+  }
 }
 
 async function printListMusic() {
-    const playList = await listMusic();
-    const tbody = document.querySelector("#music-body");
+  const playList = await listMusic();
+  const tbody = document.querySelector("#music-body");
 
-    if (!tbody) {
-        console.error("No se encontró el tbody en HTML");
-        return;
-    }
+  if (!tbody) {
+    console.error("No se encontró el tbody en HTML");
+    return;
+  }
 
-    tbody.innerHTML = "";
+  tbody.innerHTML = "";
 
-    playList.forEach((song) => {
-        console.log(`Agregando canción: ${song.id} - ${song.title}`);
-        const row = document.createElement("tr");
-        row.innerHTML = `
+  playList.forEach((song) => {
+    console.log(`Agregando canción: ${song.id} - ${song.title}`);
+    const row = document.createElement("tr");
+    row.innerHTML = `
             <td>${song.id}</td>
             <td>${song.title}</td>
             <td>${song.group}</td>
@@ -96,63 +178,63 @@ async function printListMusic() {
                 <button class="delete-btn" data-id="${song.id}">Eliminar</button>
             </td>
         `;
-        tbody.appendChild(row);
-    });
+    tbody.appendChild(row);
+  });
 
-    console.log("Tabla después de actualizar:", tbody.innerHTML);
+  console.log("Tabla después de actualizar:", tbody.innerHTML);
 }
 
 document.getElementById("music-table").addEventListener("click", function (event) {
-    if (event.target.classList.contains("delete-btn")) {
-        const id = event.target.dataset.id;
-        deleteSong(id);
-    }
+  if (event.target.classList.contains("delete-btn")) {
+    const id = event.target.dataset.id;
+    deleteSong(id);
+  }
 
-    if (event.target.classList.contains("edit-btn")) {
-        const id = event.target.dataset.id;
-        const title = event.target.dataset.title;
-        const group = event.target.dataset.group;
-        const album = event.target.dataset.album;
-        const year = event.target.dataset.year;
-        fillUpdateForm(id, title, group, album, year);
-    }
+  if (event.target.classList.contains("edit-btn")) {
+    const id = event.target.dataset.id;
+    const title = event.target.dataset.title;
+    const group = event.target.dataset.group;
+    const album = event.target.dataset.album;
+    const year = event.target.dataset.year;
+    fillUpdateForm(id, title, group, album, year);
+  }
 });
 
 function fillUpdateForm(id, title, group, album, year) {
-    document.getElementById('songId').value = id;  
-    document.getElementById('title').value = title;
-    document.getElementById('group').value = group;
-    document.getElementById('album').value = album;
-    document.getElementById('year').value = year;
+  document.getElementById('songId').value = id;
+  document.getElementById('title').value = title;
+  document.getElementById('group').value = group;
+  document.getElementById('album').value = album;
+  document.getElementById('year').value = year;
 }
 
 async function handleSubmit(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const id = document.getElementById('songId').value;  
-    const title = document.getElementById('title').value.trim();
-    const group = document.getElementById('group').value.trim();
-    const album = document.getElementById('album').value.trim();
-    const year = parseInt(document.getElementById('year').value, 10);
+  const id = document.getElementById('songId').value;
+  const title = document.getElementById('title').value.trim();
+  const group = document.getElementById('group').value.trim();
+  const album = document.getElementById('album').value.trim();
+  const year = parseInt(document.getElementById('year').value, 10);
 
-    if (!title || !group || !album || isNaN(year)) {
-        alert("Por favor, introduzca un valor numerico para year.");
-        return;
-    }
-
-    const songData = { title, group, album, year };
-
-    if (id) {
-        await updateSong(id, songData);
-    } else {
-        await createSong(songData); 
-    }
-
-    document.getElementById('song-music_form').reset();
-    document.getElementById('songId').value = ""; 
-  
+  if (!title || !group || !album || isNaN(year)) {
+    alert("Por favor, introduzca un valor numerico para year.");
+    return;
   }
-  printListMusic();
+
+  const songData = { title, group, album, year };
+
+  if (id) {
+    await updateSong(id, songData);
+  } else {
+    await createSong(songData);
+  }
+
+  document.getElementById('song-music_form').reset();
+  document.getElementById('songId').value = "";
+
+}
+printListMusic();
 
 
 document.getElementById('song-music_form').addEventListener('submit', handleSubmit);
