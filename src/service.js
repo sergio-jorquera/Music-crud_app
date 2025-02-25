@@ -4,7 +4,6 @@ document.getElementById("load-music").addEventListener("click", printListMusic);
 
 
 
-
 async function listMusic() {
 try { 
 const response = await fetch(API_URL);
@@ -16,6 +15,49 @@ return data;
     console.error("Error obteniendo musica:", error);
 }
 }
+
+
+async function createSong(newSong) {
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newSong)
+        });
+
+        if (response.ok) {
+            console.log('Canción añadida:', await response.json());
+            printListMusic();
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+document.getElementById("filmForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
+    
+    // Obtener valores de los inputs
+    const title = document.getElementById("title").value;
+    const group = document.getElementById("group").value;
+    const album = document.getElementById("album").value;
+    const year = document.getElementById("year").value;
+
+    if (!title || !group || !album || !year) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
+    // Crear objeto de nueva canción
+    const newSong = { title, group, album, year };
+
+    // Llamar a la función para enviar los datos al servidor
+    await createSong(newSong);
+
+    // Limpiar el formulario después de guardar la canción
+    document.getElementById("filmForm").reset();
+});
+
 
 async function printListMusic(){
         const playList = await listMusic();
