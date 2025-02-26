@@ -13,6 +13,7 @@
     <div id="search-container">
         <input type="text" id="search-id" placeholder="Ingrese título de la canción">
         <button id="confirm-search">Buscar</button>
+        <button id="add-song">Añadir</button>
     </div>
     <table id="music-table">
         <thead>
@@ -26,7 +27,7 @@
         <tbody id="music-body"></tbody>
         </thead>
     </table>
-    <form id="song-music_form">
+    <form id="song-music_form" class="hidden">
         <input type="hidden" id="songId" />
         <div>
             <label for="title">

@@ -202,6 +202,8 @@ function fillUpdateForm(id, title, group, album, year) {
   document.getElementById('group').value = group;
   document.getElementById('album').value = album;
   document.getElementById('year').value = year;
+  const form = document.getElementById("song-music_form");
+  form.classList.remove("hidden");
 }
 
 async function handleSubmit(event) {
@@ -238,7 +240,12 @@ async function handleSubmit(event) {
     document.getElementById('songId').value = ""; 
   
   }
-printListMusic();
+// printListMusic();
 
 
 document.getElementById('song-music_form').addEventListener('submit', handleSubmit);
+
+document.getElementById("add-song").addEventListener("click", function () {
+  const form = document.getElementById("song-music_form");
+  form.classList.toggle("hidden");
+});
