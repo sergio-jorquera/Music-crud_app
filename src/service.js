@@ -68,10 +68,15 @@ function printOneSong(song) {
       <td>${song.group}</td>
       <td>${song.album}</td>
       <td>${song.year}</td>
+      <td><a href="${song.url}" target="_blank">Enlace</a></td>
       <td>
-          <button class="edit-btn" data-id="${song.id}" 
-              data-title="${song.title}" data-group="${song.group}" 
-              data-album="${song.album}" data-year="${song.year}">
+          <button class="edit-btn" 
+              data-id="${song.id}" 
+              data-title="${song.title}" 
+              data-album="${song.album}" 
+              data-group="${song.group}" 
+              data-year="${song.year}"
+              data-url="${song.url}">
               Editar
           </button>
           <button class="delete-btn" data-id="${song.id}">Eliminar</button>
@@ -85,7 +90,7 @@ function printOneSong(song) {
   });
 
   row.querySelector(".edit-btn").addEventListener("click", function () {
-      fillUpdateForm(song.id, song.title, song.group, song.album, song.year);
+      fillUpdateForm(song.id, song.title, song.group, song.album, song.year, song.url);
   });
 
   console.log("Canción impresa:", song);
@@ -162,19 +167,24 @@ async function printListMusic() {
             <td>${song.group}</td>
             <td>${song.album}</td>
             <td>${song.year}</td>
+            <td><a href="${song.url}" target="_blank">vídeo</a></td>
             <td>
                 <button class="edit-btn" 
                 data-id="${song.id}" 
                 data-title="${song.title}" 
                 data-album="${song.album}" 
                 data-group="${song.group}" 
-                data-year="${song.year}">
+                data-year="${song.year}"
+                data-url="${song.url}">
                 Editar
                 </button>
                 <button class="delete-btn" data-id="${song.id}">Eliminar</button>
             </td>
         `;
-    tbody.appendChild(row);
+        tbody.appendChild(row);
+        row.querySelector(".edit-btn").addEventListener("click", function () {
+            fillUpdateForm(song.id, song.title, song.group, song.album, song.year, song.url); // Incluir URL
+        });
   });
 
   console.log("Tabla después de actualizar:", tbody.innerHTML);
@@ -192,18 +202,18 @@ document.getElementById("music-table").addEventListener("click", function (event
     const group = event.target.dataset.group;
     const album = event.target.dataset.album;
     const year = event.target.dataset.year;
-    fillUpdateForm(id, title, group, album, year);
+    const url = event.target.dataset.url;
+    fillUpdateForm(id, title, group, album, year, url);
   }
 });
 
-function fillUpdateForm(id, title, group, album, year) {
+function fillUpdateForm(id, title, group, album, year, url) {
   document.getElementById('songId').value = id;
   document.getElementById('title').value = title;
   document.getElementById('group').value = group;
   document.getElementById('album').value = album;
   document.getElementById('year').value = year;
-  const form = document.getElementById("song-music_form");
-  form.classList.remove("hidden");
+  document.getElementById('url').value = url;
 }
 
 async function handleSubmit(event) {
@@ -222,13 +232,14 @@ async function handleSubmit(event) {
     const group = document.getElementById('group').value.trim();
     const album = document.getElementById('album').value.trim();
     const year = parseInt(yearInput, 10);
+    const url = document.getElementById('url').value.trim();
 
-    if (!title || !group || !album || isNaN(year)) {
+    if (!title || !group || !album || isNaN(year) || !url) {
         alert("Por favor, rellene todos los campos.");
         return;
     }
 
-    const songData = { title, group, album, year };
+    const songData = { title, group, album, year, url };
 
     if (id) {
         await updateSong(id, songData);
