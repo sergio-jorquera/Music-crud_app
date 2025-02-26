@@ -1,32 +1,44 @@
 {
   "musica": [
     {
-      "id": "1",
       "title": "Bohemian Rhapsody",
       "group": "Queen",
       "album": "A Night at the Opera",
-      "year": 1975
+      "year": 1975,
+      "url": "https://www.youtube.com/watch?v=kqVpk0qxmfA&list=PL2tMgWgIvcWn5te3mj638neB9Yd1nvFpW",
+      "id": "1"
     },
     {
-      "id": "2",
       "title": "Stairway to Heaven",
       "group": "Led Zeppelin",
       "album": "Led Zeppelin IV",
-      "year": 1971
+      "year": 1971,
+      "url": "https://www.youtube.com/watch?v=Ly6ZhQVnVow",
+      "id": "2"
     },
     {
       "title": "Hotel California",
       "group": "Eagles",
       "album": "Hotel Californi",
-      "year": 19,
+      "year": 1977,
+      "url": "https://www.youtube.com/watch?v=09839DpTctU",
       "id": "3"
     },
     {
       "title": "3",
-      "group": "333",
+      "group": "wilco",
       "album": "333",
       "year": 222,
+      "url": "https://www.youtube.com/watch?v=WBpDs-BfwO0",
       "id": "0a82"
+    },
+    {
+      "title": "asdA",
+      "group": "asd",
+      "album": "asdf",
+      "year": 323,
+      "url": "https://www.youtube.com/watch?v=Fu3d_5q-ZcM&list=RDFu3d_5q-ZcM&start_radio=1",
+      "id": "8fac"
     }
   ]
 }
