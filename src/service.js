@@ -128,15 +128,23 @@ function fillUpdateForm(id, title, group, album, year) {
 
 async function handleSubmit(event) {
     event.preventDefault();
+    
+    const yearInput = document.getElementById('year').value.trim();
+
+    
+    if (!/^\d+$/.test(yearInput)) { 
+        alert("El campo Year solo puede contener números enteros positivos.");
+        return;
+    }
 
     const id = document.getElementById('songId').value;  
     const title = document.getElementById('title').value.trim();
     const group = document.getElementById('group').value.trim();
     const album = document.getElementById('album').value.trim();
-    const year = parseInt(document.getElementById('year').value, 10);
+    const year = parseInt(yearInput, 10);
 
     if (!title || !group || !album || isNaN(year)) {
-        alert("Por favor, introduzca un valor numerico para year.");
+        alert("Por favor, rellene todos los campos.");
         return;
     }
 
