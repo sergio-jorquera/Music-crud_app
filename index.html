@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Music-crud.app</title>
 </head>
+
 <body>
-<button id = "load-music" class="btn-yellow"> Cargar musica</button>
-<table id="music-table">
-    <thead>
+    <button id="load-music" class="btn-yellow"> Cargar musica</button>
+    <button id="search-button">Buscar Canción</button>
+    <div id="search-container"></div>
+    <table id="music-table">
+        <thead>
             <tr>
                 <th>ID</th>
                 <th>Título</th>
@@ -17,40 +21,40 @@
                 <th>Album</th>
                 <th>Año</th>
             </tr>
-        <tbody id= "music-body"></tbody>
-   </thead>
-</table>
-<form id="song-music_form">
-    <input type="hidden" id="songId" />
-    <div>
-        <label for="title">
-            <span>Title:</span>
-            <input id="title" type="text" name="title" />
-        </label>
-    </div>
-    <div>
-        <label for="group">
-            <span>Group:</span>
-            <input id="group" type="text" name="director" />
-        </label>
-    </div>
-    <div>
-        <label for="album">
-            <span>Album:</span>
-            <input id="album" type="text" name="director" />
-        </label>
-    </div>
-    <div>
-        <label for="year">
-            <span>Year:</span>
-            <input id="year" type="text" name="year" />
-        </label>
-    </div>
-    
-    <button type="submit">Save Song</button>
-</form>
+        <tbody id="music-body"></tbody>
+        </thead>
+    </table>
+    <form id="song-music_form">
+        <input type="hidden" id="songId" />
+        <div>
+            <label for="title">
+                <span>Title:</span>
+                <input id="title" type="text" name="title" />
+            </label>
+        </div>
+        <div>
+            <label for="group">
+                <span>Group:</span>
+                <input id="group" type="text" name="director" />
+            </label>
+        </div>
+        <div>
+            <label for="album">
+                <span>Album:</span>
+                <input id="album" type="text" name="director" />
+            </label>
+        </div>
+        <div>
+            <label for="year">
+                <span>Year:</span>
+                <input id="year" type="text" name="year" />
+            </label>
+        </div>
 
-<script src="./src/service.js"></script>
+        <button type="submit">Save Song</button>
+    </form>
+
+    <script src="./src/service.js"></script>
 </body>
 
 </html>
