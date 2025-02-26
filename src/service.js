@@ -15,7 +15,7 @@ async function listMusic() {
 
 async function getOneSong(title) {
   try {
-      const response = await fetch(`http://localhost:3000/musica?title=${title}`);
+      const response = await fetch(`${API_URL}?title=${title}`);
       if (response.ok) {
           const data = await response.json();
           return data.length > 0 ? data[0] : null; // Devuelve la primera coincidencia si existe
@@ -28,28 +28,28 @@ async function getOneSong(title) {
   }
 }
 
-const searchContainer = document.getElementById("search-container");
-const searchButton = document.getElementById("search-button");
-
-searchButton.addEventListener("click", () => {
-  searchContainer.innerHTML = `
-      <input type="text" id="search-id" placeholder="Ingrese título de la canción">
-      <button id="confirm-search">Buscar</button>
-  `;
-
-  document.getElementById("confirm-search").addEventListener("click", async () => {
-      const title = document.getElementById("search-id").value.trim();
-      if (title) {
-          const song = await getOneSong(title);
-          if (song) {
-              printOneSong(song);
-              searchContainer.innerHTML = ""; // Ocultar input y botón después de la búsqueda
-          } else {
-              alert("Canción no encontrada.");
-          }
-      }
-  });
+document.getElementById("confirm-search").addEventListener("click", async () => {
+  searchSong();
 });
+
+document.getElementById("search-id").addEventListener("keypress", async (event) => {
+  if (event.key === "Enter") {
+      event.preventDefault();
+      searchSong();
+  }
+});
+
+async function searchSong() {
+  const title = document.getElementById("search-id").value.trim();
+  if (title) {
+      const song = await getOneSong(title);
+      if (song) {
+          printOneSong(song);
+      } else {
+          alert("Canción no encontrada.");
+      }
+  }
+}
 
 function printOneSong(song) {
   const tbody = document.querySelector("#music-body");
@@ -59,7 +59,7 @@ function printOneSong(song) {
       return;
   }
 
-  tbody.innerHTML = ""; // Limpiar tabla antes de agregar la nueva fila
+  tbody.innerHTML = "";
 
   const row = document.createElement("tr");
   row.innerHTML = `
@@ -69,21 +69,17 @@ function printOneSong(song) {
       <td>${song.album}</td>
       <td>${song.year}</td>
       <td>
-          <button class="edit-btn" 
-              data-id="${song.id}" 
-              data-title="${song.title}" 
-              data-album="${song.album}" 
-              data-group="${song.group}" 
-              data-year="${song.year}">
+          <button class="edit-btn" data-id="${song.id}" 
+              data-title="${song.title}" data-group="${song.group}" 
+              data-album="${song.album}" data-year="${song.year}">
               Editar
           </button>
           <button class="delete-btn" data-id="${song.id}">Eliminar</button>
       </td>
   `;
-  
+
   tbody.appendChild(row);
 
-  // Reasignar eventos a los botones
   row.querySelector(".delete-btn").addEventListener("click", function () {
       deleteSong(song.id);
   });
