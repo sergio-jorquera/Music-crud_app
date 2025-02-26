@@ -157,6 +157,7 @@ async function printListMusic() {
   }
 
   tbody.innerHTML = "";
+  let checkedSongs = JSON.parse(localStorage.getItem("checkedSongs")) || {};
 
   playList.forEach((song) => {
     console.log(`Agregando canción: ${song.id} - ${song.title}`);
@@ -168,6 +169,7 @@ async function printListMusic() {
             <td>${song.album}</td>
             <td>${song.year}</td>
             <td><a href="${song.url}" target="_blank">vídeo</a></td>
+            <td><input type="checkbox" class="song-checkbox"data-id="${song.id}"></td>
             <td>
                 <button class="edit-btn" 
                 data-id="${song.id}" 
@@ -182,10 +184,23 @@ async function printListMusic() {
             </td>
         `;
         tbody.appendChild(row);
+        const checkbox = row.querySelector(".song-checkbox");
+        checkbox.checked = checkedSongs[song.id] || false;
+
+        checkbox.addEventListener("change", function () {
+            checkedSongs[song.id] = this.checked;
+            localStorage.setItem("checkedSongs", JSON.stringify(checkedSongs));
+
+            console.log("Estado actualizado:", checkedSongs); // Para verificar en consola
+        });
+
+
         row.querySelector(".edit-btn").addEventListener("click", function () {
             fillUpdateForm(song.id, song.title, song.group, song.album, song.year, song.url); // Incluir URL
         });
   });
+  
+
 
   console.log("Tabla después de actualizar:", tbody.innerHTML);
 }
@@ -214,6 +229,9 @@ function fillUpdateForm(id, title, group, album, year, url) {
   document.getElementById('album').value = album;
   document.getElementById('year').value = year;
   document.getElementById('url').value = url;
+
+  document.getElementById("song-music_form").classList.remove("hidden");
+ 
 }
 
 async function handleSubmit(event) {
@@ -247,17 +265,30 @@ async function handleSubmit(event) {
         await createSong(songData); 
     }
 
+    
+  
+    
     document.getElementById('song-music_form').reset();
-    document.getElementById('songId').value = ""; 
-    document.getElementById('song-music_form').classList.add("hidden");
+    document.getElementById('songId').value = "";
+    
+    
   
   }
-// printListMusic();
+printListMusic();
 
 
 document.getElementById('song-music_form').addEventListener('submit', handleSubmit);
 
 document.getElementById("add-song").addEventListener("click", function () {
   const form = document.getElementById("song-music_form");
+  document.getElementById('song-music_form').reset();
   form.classList.toggle("hidden");
+
+  
+ 
+});
+document.getElementById('cancel-button').addEventListener('click', function () {
+  const form = document.getElementById("song-music_form");
+  form.reset(); 
+  form.classList.add("hidden"); 
 });
