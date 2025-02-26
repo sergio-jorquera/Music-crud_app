@@ -238,6 +238,7 @@ async function handleSubmit(event) {
 
     document.getElementById('song-music_form').reset();
     document.getElementById('songId').value = ""; 
+    document.getElementById('song-music_form').classList.add("hidden");
   
   }
 // printListMusic();
