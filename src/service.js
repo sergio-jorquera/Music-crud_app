@@ -214,7 +214,7 @@ document.getElementById("music-table").addEventListener("click", function (event
   }
 
   if (event.target.classList.contains("edit-btn")) {
-    const id = event.target.dataset.id;
+    // const id = event.target.dataset.id;
     const title = event.target.dataset.title;
     const group = event.target.dataset.group;
     const album = event.target.dataset.album;
