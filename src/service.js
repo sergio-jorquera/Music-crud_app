@@ -1,4 +1,6 @@
+
 const API_URL = "http://localhost:3000/musica";
+
 
 document.getElementById("load-music").addEventListener("click", printListMusic);
 
@@ -279,7 +281,7 @@ printListMusic();
 
 document.getElementById('song-music_form').addEventListener('submit', handleSubmit);
 
-document.getElementById("add-song").addEventListener("click", function () {
+document.getElementById("load-music").addEventListener("click", function () {
   const form = document.getElementById("song-music_form");
   document.getElementById('song-music_form').reset();
   form.classList.toggle("hidden");

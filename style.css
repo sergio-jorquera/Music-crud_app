@@ -77,13 +77,14 @@ table {
     border-collapse: collapse;
     margin: 25px 0;
     background-color: transparent;
+    color: black;
 }
 
 table th, td {
     padding: 15px;
     text-align: left;
     border: 1px solid white;
-    color: white;
+    color: black;
 }
 
 table th {
