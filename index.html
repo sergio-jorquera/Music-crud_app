@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Music-crud.app</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <button id="load-music" class="btn-yellow"> Cargar musica</button>
-    <div id="search-container">
-        <input type="text" id="search-id" placeholder="Ingrese título de la canción">
-        <button id="confirm-search">Buscar</button>
-        <button id="add-song">Añadir</button>
-    </div>
-    <table id="music-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Grupo</th>
-                <th>Album</th>
-                <th>Año</th>
-                <th>Enlace</th>
-                <th></th>
-                <th></th>
-            </tr>
-        <tbody id="music-body"></tbody>
-        </thead>
-    </table>
-    <form id="song-music_form" class="hidden">
-        <input type="hidden" id="songId" />
-        <div>
-            <label for="title">
-                <span>Title:</span>
-                <input id="title" type="text" placeholder="Title"/>
-            </label>
+    <!-- Header section -->
+    <header>
+        <div class="header-content">
+            <img src="./images/logo.png" alt="Logo" class="logo">
+            <h1>PLAYLIST PARA RURAL BOOTCAMP F5</h1>
         </div>
-        <div>
-            <label for="group">
-                <span>Group:</span>
-                <input id="group" type="text" placeholder="Group"/>
-            </label>
+    </header>
+
+    <div class="main-content">
+        <div id="search-container">
+            <input type="text" id="search-id" placeholder="Ingrese título de la canción">
+            <button id="confirm-search" class="btn-white">BUSCAR MÚSICA</button>
+            <button id="add-song" class="btn-white">AÑADIR MÚSICA</button>
         </div>
-        <div>
-            <label for="album">
-                <span>Album:</span>
+
+        <table id="music-table">
+            <thead>
+                <tr>
+                    <th>TÍTULO</th>
+                    <th>GRUPO</th>
+                    <th>ALBUM</th>
+                    <th>AÑO</th>
+                    <th>QUIÉN PUSE</th>
+                    <th>ENLACE DE YOUTUBE</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody id="music-body"></tbody>
+        </table>
+
+        <form id="song-music_form" class="hidden">
+            <div class="form-group">
+                <input id="title" type="text" placeholder="Título"/>
+            </div>
+            <div class="form-group">
+                <input id="group" type="text" placeholder="Grupo"/>
+            </div>
+            <div class="form-group">
                 <input id="album" type="text" placeholder="Album"/>
-            </label>
-        </div>
-        <div>
-            <label for="year">
-                <span>Year:</span>
-                <input id="year" type="text" placeholder="Year"/>
-            </label>
-        </div>
-        <div>
-                <label for="url">
-                    <span>URL:</span>
-                    <input id="url" type="text" placeholder="URL"/>
-                </label>
-        </div>
+            </div>
+            <div class="form-group">
+                <input id="year" type="text" placeholder="Año"/>
+            </div>
+            <div class="form-group">
+                <input id="url" type="text" placeholder="URL de YouTube"/>
+            </div>
+            <div class="form-buttons">
+                <button type="submit" class="btn-black">GUARDAR</button>
+                <button id="cancel-button" type="button" class="btn-black">CANCELAR</button>
+            </div>
+        </form>
     </div>
 
-        <button type="submit">Guardar</button>
-        <button id="cancel-button" type="button">Cancelar</button>
-    </form>
+    <!-- Footer section -->
+    <footer>
+        <div class="footer-content">
+            <img src="./images/logo.png" alt="Logo" class="logo">
+            <div class="social-icons">
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Facebook</a>
+            </div>
+        </div>
+    </footer>
 
-    <script src="./src/service.js"></script>
+    <script src="src/services.js"></script>
 </body>
-
 </html>
