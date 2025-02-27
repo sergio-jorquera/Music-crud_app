@@ -82,8 +82,8 @@ table {
 table th, td {
     padding: 15px;
     text-align: left;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid rgb(8, 7, 7);
+    color: rgb(21, 19, 19);
 }
 
 table th {
@@ -110,6 +110,13 @@ button {
 .btn-white {
     background-color: white;
     color: black;
+    border: 2px solid black;        
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);    
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .btn-black {

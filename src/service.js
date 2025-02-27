@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3000/musica";
 
-document.getElementById("load-music").addEventListener("click", printListMusic);
+
 
 async function listMusic() {
   try {
