@@ -52,25 +52,25 @@ header {
 }
 
 /* Поисковая панель */
-#search-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 20px 0;
-    padding: 15px 20px;
-}
-
 #search-container input {
     flex: 1;
     padding: 12px 15px;
-    border: 1px solid white;
+    border: 2px solid black;
     border-radius: 6px;
     font-size: 14px;
     outline: none;
     background-color: white;
     color: black;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), /* Внешняя тень */
+                inset 0 0 4px rgba(0, 0, 0, 0.2); /* Внутренняя тень для эффекта углубления */
+    transition: all 0.3s ease;
 }
 
+#search-container input:focus {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), /* Оставляем внешнюю тень */
+                inset 0 2px 4px rgba(0, 0, 0, 0.3); /* Усиливаем внутреннюю тень при фокусе */
+    transform: none; /* Убираем эффект приподнятия */
+}
 /* Таблица */
 table {
     width: 100%;
@@ -110,20 +110,19 @@ button {
 .btn-white {
     background-color: white;
     color: black;
-    border: 2px solid black;        
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border: 2px solid black;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); 
 }
-
 .btn-white:hover {
-    transform: translateY(-2px);    
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-2px) translateX(2px); 
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7); 
 }
-
 .btn-black {
     background-color: black;
     color: white;
     border: 2px solid white;
 }
+
 
 /* Форма */
 #song-music_form {
