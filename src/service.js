@@ -1,6 +1,8 @@
+
 const API_URL = "http://localhost:3000/musica";
 
-document.getElementById("add-song").addEventListener("click", printListMusic);
+
+document.getElementById("load-music").addEventListener("click", printListMusic);
 
 async function listMusic() {
   try {
@@ -212,7 +214,7 @@ document.getElementById("music-table").addEventListener("click", function (event
   }
 
   if (event.target.classList.contains("edit-btn")) {
-    const id = event.target.dataset.id;
+    // const id = event.target.dataset.id;
     const title = event.target.dataset.title;
     const group = event.target.dataset.group;
     const album = event.target.dataset.album;
@@ -269,20 +271,17 @@ async function handleSubmit(event) {
   
     
     document.getElementById('song-music_form').reset();
-    document.getElementById('songId').value = ""; 
-    document.getElementById('song-music_form').classList.add("hidden");
     document.getElementById('songId').value = "";
     
     
-
+  
   }
-// printListMusic();
 printListMusic();
 
 
 document.getElementById('song-music_form').addEventListener('submit', handleSubmit);
 
-document.getElementById("add-song").addEventListener("click", function () {
+document.getElementById("load-music").addEventListener("click", function () {
   const form = document.getElementById("song-music_form");
   document.getElementById('song-music_form').reset();
   form.classList.toggle("hidden");
