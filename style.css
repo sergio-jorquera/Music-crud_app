@@ -199,3 +199,99 @@ footer {
 .hidden {
     display: none;
 }
+
+#song-music_form {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    width: 90%;
+    max-width: 380px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#song-music_form label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#song-music_form input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    color: black;
+    transition: border-color 0.3s ease;
+}
+
+#song-music_form input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.form-buttons button {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.form-buttons button:first-child {
+    background: #007BFF;
+    color: white;
+}
+
+.form-buttons button:first-child:hover {
+    background: #0056b3;
+}
+
+.form-buttons button:last-child {
+    background: #ddd;
+    color: black;
+}
+
+.form-buttons button:last-child:hover {
+    background: #999;
+}
+
+/* Adaptación responsiva */
+@media (max-width: 768px) {
+    #song-music_form {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    #song-music_form {
+        bottom: 5%;
+        width: 90%;
+    }
+}
