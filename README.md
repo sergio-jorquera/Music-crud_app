@@ -22,8 +22,6 @@ Esta aplicación permite a los estudiantes y profesores mantener una playlist co
 
 ![Página principal]
 (./images/captura1.png)
-*Vista principal de la playlist con las canciones disponibles*
-
 ## 🔧 Instalación
 
 Al ser una aplicación web con HTML, CSS y JavaScript puro, no requiere instalación especial:
