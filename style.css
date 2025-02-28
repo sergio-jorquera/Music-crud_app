@@ -119,6 +119,29 @@ table td:nth-child(1),
 table th:nth-child(1) {
     display: none;
 }
+table td:nth-child(2),
+table th:nth-child(2) {
+   width: 20%;
+}
+table td:nth-child(3),
+table th:nth-child(3) {
+   width: 20%;
+}
+table td:nth-child(4),
+table th:nth-child(4) {
+   width: 20%;
+}
+table td:nth-child(8),
+table th:nth-child(8) {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+table td:nth-child(7),
+table th:nth-child(7) {
+    text-align: center;
+}
+
 
 
 /* Кнопки */
@@ -135,7 +158,7 @@ button {
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
-/*chench2: cambia el color de los botones a gris y cambiar el color del contorno*/
+
 .btn-white {
     background-color: rgb(225, 223, 223);
     color: black;
@@ -189,7 +212,7 @@ button {
 footer {
     background-image: url('./images/footer.png');
     background-size: cover;
-    padding: 30px 0;
+    padding: 60px 0;
     margin-top: auto;
 }
 
@@ -202,22 +225,9 @@ footer {
     align-items: center;
 }
 
-.social-icons {
-    display: flex;
-    gap: 25px;
-}
 
-.social-icon {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
 
-.social-icon:hover {
-    color: #ffd700;
-}
+
 
 /* Скрытые элементы */
 .hidden {
@@ -296,26 +306,138 @@ footer {
     background: #999;
 }
 
-/* Adaptación responsiva */
-@media (max-width: 768px) {
-    #song-music_form {
-        width: 95%;
-        padding: 15px;
+
+
+@media (max-width: 800px) {
+    
+    body {
+        font-size: 14px; 
+    }
+    header{
+        padding: 20px;
     }
 
-    .form-buttons {
-        flex-direction: column;
+    .header-content h1 {
+        font-size: 15px; 
+    }
+    .logo {
+        height: 35px; 
+        width: auto;
+        position: absolute; 
+        left: 20px; 
+    }
+
+    .main-content {
+        flex-direction: column; 
+        padding: 10px; 
+    }
+
+    #search-container {
+        flex-direction: column; 
         gap: 10px;
     }
-}
 
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
+    table th, td {
+        font-size: 12px; 
+    }
+    
+
+    button {
+        padding: 10px 20px; 
+        font-size: 12px; 
     }
 
     #song-music_form {
-        bottom: 5%;
-        width: 90%;
+        width: 100%; 
+        bottom: 0; 
+        left: 0;
+        right: 0;
+        transform: none; 
     }
 }
+@media (max-width: 480px) {
+    body {
+        font-size: 12px; 
+    }
+
+    .header-content h1 {
+        font-size: 20px; 
+    }
+
+    .main-content {
+        flex-direction: column; 
+        padding: 8px; 
+    }
+
+    #search-container {
+        flex-direction: column;
+        gap: 8px; 
+    }
+
+    table th, td {
+        font-size: 10px; 
+    }
+
+    button {
+        padding: 8px 15px; 
+        font-size: 10px; 
+    }
+
+    #song-music_form {
+        width: 100%; 
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none; 
+    }
+}
+
+
+/* @media (orientation: landscape) {
+    body {
+        font-size: 14px; 
+    }
+    header{
+        align-items: center;
+        padding: 40px 0;
+    }
+    
+    .header-content h1 {
+        
+        font-size: 15px; 
+       
+    }
+    img #landscape-logo{
+        height: 40px; 
+        width: auto;
+        position: absolute; 
+        left: 20px; 
+    }
+
+    .main-content {
+        flex-direction: row; 
+        padding: 15px; 
+    }
+
+    #search-container {
+        flex-direction: row; 
+        gap: 15px; 
+    }
+
+    table th, td {
+        font-size: 12px; 
+    }
+
+    button {
+        padding: 10px 20px; 
+        font-size: 12px; 
+    }
+
+    #song-music_form {
+        width: 80%; 
+        bottom: 10%; 
+        left: 10%;
+        right: 10%;
+        transform: none; 
+    }
+} */

@@ -11,34 +11,26 @@
     {
       "title": "Hotel California",
       "group": "Eagles",
-      "album": "Hotel Californi",
+      "album": "Hotel California",
       "year": 1977,
       "url": "https://www.youtube.com/watch?v=09839DpTctU",
       "id": "3"
     },
     {
-      "title": "3",
-      "group": "wilco",
-      "album": "333",
-      "year": 222,
-      "url": "https://www.youtube.com/watch?v=WBpDs-BfwO0",
+      "title": "Rata de dos patas",
+      "group": "Paquita La Del Barrio",
+      "album": "Taco Placer",
+      "year": 2000,
+      "url": "https://www.youtube.com/watch?v=ld9wCxrbn3w",
       "id": "0a82"
     },
     {
-      "title": "la",
-      "group": "lo",
-      "album": "lulul",
-      "year": 121,
-      "url": "lilili",
+      "title": "Migrantes",
+      "group": "Migrantes - The la Planta - Lil cake",
+      "album": "Best of",
+      "year": 2024,
+      "url": "https://www.youtube.com/watch?v=P_NsIJUW6sA",
       "id": "9174"
-    },
-    {
-      "id": "d657",
-      "title": "dcscsc",
-      "group": "cscs",
-      "album": "cscsc",
-      "year": 1111,
-      "url": "cs"
     }
   ]
 }
