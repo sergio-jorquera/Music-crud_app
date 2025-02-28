@@ -9,11 +9,17 @@
 </head>
 
 <body>
-    <button id="load-music" class="btn-yellow"> Cargar musica</button>
+    <header>
+        <div class="header-content">
+            <img src="./images/logo.png" alt="Logo" class="logo">
+            <h1>PLAYLIST PARA RURAL BOOTCAMP F5</h1>
+        </div>
+    </header>
+    <div class="main-content"></div>
     <div id="search-container">
         <input type="text" id="search-id" placeholder="Ingrese título de la canción">
-        <button id="confirm-search">Buscar</button>
-        <button id="add-song">Añadir</button>
+        <button id="confirm-search" class="btn-white">BUSCAR MÚSICA</button>
+        <button id="add-song" class="btn-white">AÑADIR MÚSICA</button>
     </div>
     <table id="music-table">
         <thead>
@@ -25,46 +31,69 @@
                 <th>Año</th>
                 <th>Enlace YouTube</th>
                 <th>Acciones</th>
-            </tr>
+                <th>Enlace</th>
+                </tr>
+        
+            </thead>
         <tbody id="music-body"></tbody>
-        </thead>
+       
     </table>
     <form id="song-music_form" class="hidden">
         <input type="hidden" id="songId" />
         <div>
             <label for="title">
                 <span>Title:</span>
-                <input id="title" type="text" name="title" />
+                
+                <input id="title" type="text" placeholder="Title"/>
             </label>
         </div>
         <div>
             <label for="group">
                 <span>Group:</span>
-                <input id="group" type="text" name="director" />
+                
+                <input id="group" type="text" placeholder="Group"/>
             </label>
         </div>
         <div>
             <label for="album">
                 <span>Album:</span>
-                <input id="album" type="text" name="director" />
+                
+                <input id="album" type="text" placeholder="Album"/>
             </label>
         </div>
         <div>
             <label for="year">
                 <span>Year:</span>
-                <input id="year" type="text" name="year" />
+               
+                <input id="year" type="text" placeholder="Year"/>
             </label>
         </div>
         <div>
                 <label for="url">
                     <span>URL:</span>
-                    <input id="url" type="text" name="url" />
+                   
+                    <input id="url" type="text" placeholder="URL"/>
                 </label>
         </div>
     </div>
 
-        <button type="submit">Save Song</button>
+        <div class="form-buttons">
+        <button type="submit">Guardar</button>
+        <button id="cancel-button" type="button">Cancelar</button>
+        </div>
     </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <img src="./images/logo.png" alt="Logo" class="logo">
+            <div class="social-icons">
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Facebook</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="./src/service.js"></script>
 </body>
