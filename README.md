@@ -64,5 +64,11 @@ Si quieres contribuir al proyecto:
 4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
 5. Abre un Pull Request
 
+## CREADORES
+Este proyecto ha sido desarrollado por:
+
+**SaldaDani** -(https://github.com/SaldaDani)<br>
+**NataKaz Natalia Kazantseva** - (https://github.com/NataKaz)<br>
+**Sergio-Jorquera** - (https://github.com/sergio-jorquera)
 
 
