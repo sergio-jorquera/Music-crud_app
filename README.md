@@ -19,9 +19,8 @@ Esta aplicación permite a los estudiantes y profesores mantener una playlist co
 - LocalStorage para guardar los datos localmente
 
 ## 📱 Capturas de Pantalla
+https://github.com/sergio-jorquera/Music-crud_app/blob/main/images/captura1.png
 
-![Página principal]
-(./images/captura1.png)
 ## 🔧 Instalación
 
 Al ser una aplicación web con HTML, CSS y JavaScript puro, no requiere instalación especial:
