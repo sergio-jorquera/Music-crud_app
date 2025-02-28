@@ -1,66 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music-crud.app</title>
     <link rel="stylesheet" href="style.css">
+    <title>Music-crud.app</title>
 </head>
+
 <body>
-    <!-- Header section -->
     <header>
         <div class="header-content">
             <img src="./images/logo.png" alt="Logo" class="logo">
             <h1>PLAYLIST PARA RURAL BOOTCAMP F5</h1>
         </div>
     </header>
-
-    <div class="main-content">
-        <div id="search-container">
-            <input type="text" id="search-id" placeholder="Ingrese título de la canción">
-            <button id="confirm-search" class="btn-white">BUSCAR MÚSICA</button>
-            <button id="add-song" class="btn-white">AÑADIR MÚSICA</button>
-        </div>
-
-        <table id="music-table">
-            <thead>
-                <tr>
-                    <th>TÍTULO</th>
-                    <th>GRUPO</th>
-                    <th>ALBUM</th>
-                    <th>AÑO</th>
-                    <th>QUIÉN PUSE</th>
-                    <th>ENLACE DE YOUTUBE</th>
-                    <th>ACCIONES</th>
+    <div class="main-content"></div>
+    <div id="search-container">
+        <input type="text" id="search-id" placeholder="Ingrese título de la canción">
+        <button id="confirm-search" class="btn-white">BUSCAR MÚSICA</button>
+        <button id="add-song" class="btn-white">AÑADIR MÚSICA</button>
+    </div>
+    <table id="music-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Grupo</th>
+                <th>Album</th>
+                <th>Año</th>
+                <th>Enlace YouTube</th>
+                <th>Acciones</th>
+                <th>Enlace</th>
                 </tr>
+        
             </thead>
-            <tbody id="music-body"></tbody>
-        </table>
-
-        <form id="song-music_form" class="hidden">
-            <div class="form-group">
-                <input id="title" type="text" placeholder="Título"/>
-            </div>
-            <div class="form-group">
+        <tbody id="music-body"></tbody>
+       
+    </table>
+    <form id="song-music_form" class="hidden">
+        <input type="hidden" id="songId" />
+        <div>
+            <label for="title">
+                <span>Canción:</span>
+                
+                <input id="title" type="text" placeholder="Canción"/>
+            </label>
+        </div>
+        <div>
+            <label for="group">
+                <span>Grupo:</span>
+                
                 <input id="group" type="text" placeholder="Grupo"/>
-            </div>
-            <div class="form-group">
+            </label>
+        </div>
+        <div>
+            <label for="album">
+                <span>Album:</span>
+                
                 <input id="album" type="text" placeholder="Album"/>
-            </div>
-            <div class="form-group">
+            </label>
+        </div>
+        <div>
+            <label for="year">
+                <span>Año:</span>
+               
                 <input id="year" type="text" placeholder="Año"/>
-            </div>
-            <div class="form-group">
-                <input id="url" type="text" placeholder="URL de YouTube"/>
-            </div>
-            <div class="form-buttons">
-                <button type="submit" class="btn-black">GUARDAR</button>
-                <button id="cancel-button" type="button" class="btn-black">CANCELAR</button>
-            </div>
-        </form>
+            </label>
+        </div>
+        <div>
+                <label for="url">
+                    <span>URL:</span>
+                   
+                    <input id="url" type="text" placeholder="URL"/>
+                </label>
+        </div>
     </div>
 
-    <!-- Footer section -->
+        <div class="form-buttons">
+        <button type="submit">Guardar</button>
+        <button id="cancel-button" type="button">Cancelar</button>
+        </div>
+    </form>
+    </div>
+
     <footer>
         <div class="footer-content">
             <img src="./images/logo.png" alt="Logo" class="logo">
@@ -72,6 +95,7 @@
         </div>
     </footer>
 
-    <script src="src/services.js"></script>
+    <script src="./src/service.js"></script>
 </body>
+
 </html>

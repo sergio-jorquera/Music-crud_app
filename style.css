@@ -1,5 +1,3 @@
-
-/* Общие стили */
 body {
     margin: 0;
     padding: 0;
@@ -44,26 +42,36 @@ header {
 
 /* Основной контент */
 .main-content {
-    flex: 1;
+    display: flex;
+    align-items: center;
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 8px;
+    justify-content: center;
 }
 
 /* Поисковая панель */
+#search-container {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    justify-content: center;
+    
+    
+}
+
 #search-container input {
     flex: 1;
     padding: 12px 15px;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 6px;
     font-size: 14px;
     outline: none;
     background-color: white;
     color: black;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), /* Внешняя тень */
-                inset 0 0 4px rgba(0, 0, 0, 0.2); /* Внутренняя тень для эффекта углубления */
-    transition: all 0.3s ease;
+    max-width: 250px;
+    
 }
 
 #search-container input:focus {
@@ -77,13 +85,14 @@ table {
     border-collapse: collapse;
     margin: 25px 0;
     background-color: transparent;
+    color: black;
 }
 
 table th, td {
     padding: 15px;
     text-align: left;
-    border: 1px solid rgb(8, 7, 7);
-    color: rgb(21, 19, 19);
+    border: 1px solid white;
+    color: black;
 }
 
 table th {
@@ -115,7 +124,7 @@ button {
 }
 .btn-white:hover {
     transform: translateY(-2px) translateX(2px); 
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7); 
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7);
 }
 .btn-black {
     background-color: black;
@@ -123,8 +132,6 @@ button {
     border: 2px solid white;
 }
 
-
-/* Форма */
 #song-music_form {
     position: fixed;
     bottom: 0;
@@ -196,4 +203,100 @@ footer {
 /* Скрытые элементы */
 .hidden {
     display: none;
+}
+
+#song-music_form {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    width: 90%;
+    max-width: 380px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#song-music_form label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#song-music_form input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+    color: black;
+    transition: border-color 0.3s ease;
+}
+
+#song-music_form input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.form-buttons button {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.form-buttons button:first-child {
+    background: #007BFF;
+    color: white;
+}
+
+.form-buttons button:first-child:hover {
+    background: #0056b3;
+}
+
+.form-buttons button:last-child {
+    background: #ddd;
+    color: black;
+}
+
+.form-buttons button:last-child:hover {
+    background: #999;
+}
+
+/* Adaptación responsiva */
+@media (max-width: 768px) {
+    #song-music_form {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    #song-music_form {
+        bottom: 5%;
+        width: 90%;
+    }
 }

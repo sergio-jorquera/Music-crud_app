@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3000/musica";
 
-
+document.getElementById("add-song").addEventListener("click", printListMusic);
 
 async function listMusic() {
   try {
@@ -236,10 +236,10 @@ function fillUpdateForm(id, title, group, album, year, url) {
 
 async function handleSubmit(event) {
     event.preventDefault();
-    
+
     const yearInput = document.getElementById('year').value.trim();
 
-    
+
     if (!/^\d+$/.test(yearInput)) { 
         alert("El campo Year solo puede contener números enteros positivos.");
         return;
@@ -269,11 +269,14 @@ async function handleSubmit(event) {
   
     
     document.getElementById('song-music_form').reset();
+    document.getElementById('songId').value = ""; 
+    document.getElementById('song-music_form').classList.add("hidden");
     document.getElementById('songId').value = "";
     
     
-  
+
   }
+// printListMusic();
 printListMusic();
 
 
