@@ -11,11 +11,12 @@ body {
     color: white;
 }
 
+/*chench3: aumento de altura*/
 /* Стили для header */
 header {
     background-image: url('./images/head.png');
     background-size: cover;
-    padding: 15px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -27,17 +28,29 @@ header {
     align-items: center;
 }
 
+
+/* Importar fuente y aumentar el tamaño de la letra*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&display=swap');
+
+
 .header-content h1 {
     color: white;
-    font-size: 24px;
+    font-size: 32px;
     margin: 10px 0;
     flex: 1;
     text-align: center;
+    font-family: 'Raleway', sans-serif; 
+    font-weight: 800; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
+/*chench1: El logo más grande y se movió hacia la izquierda.*/
 .logo {
-    height: 40px;
+    height: 60px; 
     width: auto;
+    position: absolute; 
+    left: 20px; 
 }
 
 /* Основной контент */
@@ -87,11 +100,11 @@ table {
     background-color: transparent;
     color: black;
 }
-
+/*chench4 cambio color de tabla*/
 table th, td {
     padding: 15px;
     text-align: left;
-    border: 1px solid white;
+    border: 1px solid rgb(155, 151, 151);
     color: black;
 }
 
@@ -102,6 +115,13 @@ table th {
     font-size: 13px;
 }
 
+table td:nth-child(1),
+table th:nth-child(1) {
+    display: none;
+}
+
+
+/* Кнопки */
 /* Кнопки */
 button {
     padding: 12px 25px;
@@ -115,22 +135,21 @@ button {
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
-
+/*chench2: cambia el color de los botones a gris y cambiar el color del contorno*/
 .btn-white {
-    background-color: white;
+    background-color: rgb(225, 223, 223);
     color: black;
-    border: 2px solid black;
+    border: 2px solid #666;  
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); 
+    transition: all 0.3s ease;  
 }
+
 .btn-white:hover {
-    transform: translateY(-2px) translateX(2px); 
-    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);  
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7); 
+    background-color: #f5f5f5;  
 }
-.btn-black {
-    background-color: black;
-    color: white;
-    border: 2px solid white;
-}
+
 
 #song-music_form {
     position: fixed;
