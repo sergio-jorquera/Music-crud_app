@@ -27,6 +27,8 @@ Al ser una aplicación web con HTML, CSS y JavaScript puro, no requiere instalac
 
 1. Clona este repositorio o descarga los archivos
 2. Abre el archivo `index.html` en tu navegador
+3. En la terminal de bash abre el puerto http://localhost:3000/musica mediante comando "npm run api".
+4. Una vez abierto el puerto, entra en el deployment (https://sergio-jorquera.github.io/Music-crud_app/) y podrás interactuar con la página.
 
 ## 📝 Uso
 
