@@ -1,19 +1,7 @@
 {
   "musica": [
     {
-<<<<<<< HEAD
-      "title": "Bohemian",
-      "group": "Queen",
-      "album": "A Night at the Opera",
-      "year": 1974,
-      "url": "https://www.youtube.com/watch?v=kqVpk0qxmfA&list=PL2tMgWgIvcWn5te3mj638neB9Yd1nvFpW",
-      "id": "1"
-    },
-    {
-      "title": "Stairway to Heaven",
-=======
       "title": "Stairway to Heave",
->>>>>>> 530b04474453b388181e6c7157df3e77a032afc6
       "group": "Led Zeppelin",
       "album": "Led Zeppelin IV",
       "year": 1971,
@@ -35,23 +23,7 @@
       "year": 222,
       "url": "https://www.youtube.com/watch?v=WBpDs-BfwO0",
       "id": "0a82"
-    },
-    {
-<<<<<<< HEAD
-      "id": "9174",
-      "title": "lalaal",
-      "group": "lololol",
-      "album": "lulul",
-      "year": 1212,
-      "url": "lilili"
-=======
-      "title": "asdA",
-      "group": "asd",
-      "album": "asdf",
-      "year": 322,
-      "url": "https://www.youtube.com/watch?v=Fu3d_5q-ZcM&list=RDFu3d_5q-ZcM&start_radio=1",
-      "id": "8fac"
->>>>>>> 530b04474453b388181e6c7157df3e77a032afc6
     }
+   
   ]
 }
