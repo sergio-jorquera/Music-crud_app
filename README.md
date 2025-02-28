@@ -21,7 +21,7 @@ Esta aplicación permite a los estudiantes y profesores mantener una playlist co
 ## 📱 Capturas de Pantalla
 
 ![Página principal]
-[Logo del proyecto](./images/captura1.png)
+https://github.com/sergio-jorquera/Music-crud_app/blob/main/images/captura1.png
 *Vista principal de la playlist con las canciones disponibles*
 
 ## 🔧 Instalación
